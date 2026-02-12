@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>RSVP</title>
 
+  <!-- Elegant serif font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
@@ -11,56 +14,63 @@
       height: 100vh;
       width: 100vw;
       overflow: hidden;
-      font-family: "Garamond", serif;
+      font-family: "Cormorant Garamond", serif;
       color: white;
 
-      /* Fullscreen obelisk background — image must be in same folder */
+      /* Fullscreen obelisk background — zoomed out */
       background-image: url('obelisk.jpg');
-      background-size: cover;
+      background-size: contain; /* zooms out */
       background-position: center;
       background-repeat: no-repeat;
+      background-color: black; /* fills edges on tall screens */
 
       display: flex;
       justify-content: center;
-      align-items: flex-end; /* moves content to bottom */
+      align-items: flex-end;
       text-align: center;
-      padding-bottom: 8vh; /* bottom third spacing */
+      padding-bottom: 10vh;
     }
 
     #overlay {
       background: rgba(0, 0, 0, 0.55);
-      padding: 40px;
-      border-radius: 12px;
-      max-width: 700px;
-      width: 90%;
-      opacity: 1; /* always visible now */
+      padding: 45px;
+      border-radius: 14px;
+      max-width: 750px;
+      width: 92%;
+      opacity: 1;
       transition: opacity 1s ease;
     }
 
     .text-line {
-      font-size: 30px;
-      margin: 20px 0;
+      font-size: 34px; /* larger text */
+      margin: 22px 0;
       opacity: 0;
       transition: opacity 1s ease;
 
-      /* Stronger glow for readability */
+      /* Strong glow for readability */
       text-shadow:
-        0 0 10px rgba(0, 0, 0, 0.9),
-        0 0 18px rgba(0, 0, 0, 0.7),
-        0 0 28px rgba(0, 0, 0, 0.6);
+        0 0 12px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Larger date + time */
+    #date, #time {
+      font-size: 40px;
+      font-weight: 600;
     }
 
     .btn {
-      padding: 14px 24px;
+      padding: 16px 26px;
       margin: 20px;
-      font-size: 22px;
+      font-size: 24px;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
-      font-family: "Garamond", serif;
-      width: 160px;
+      font-family: "Cormorant Garamond", serif;
+      width: 170px;
 
-      box-shadow: 0 0 12px rgba(0,0,0,0.6);
+      box-shadow: 0 0 14px rgba(0,0,0,0.6);
     }
 
     .accept {
@@ -106,7 +116,9 @@ window.onload = () => {
   const buttons = document.getElementById("buttons");
 
   setTimeout(() => {
-    msg.innerText = "You are cordially invited to celebrate Jon's 30th birthday with him on a quest. Only those who seek truth dare to accept.";
+    msg.innerHTML = 
+      "You are cordially invited to celebrate Jon's 30th birthday with him on a quest.<br><br>" +
+      "Only those who seek truth dare to accept.";
     msg.style.opacity = 1;
   }, 600);
 
