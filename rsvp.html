@@ -19,16 +19,18 @@
 
       /* Fullscreen obelisk background — zoomed out */
       background-image: url('obelisk.jpg');
-      background-size: contain; /* zooms out */
+      background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      background-color: black; /* fills edges on tall screens */
+      background-color: black;
 
       display: flex;
       justify-content: center;
       align-items: flex-end;
       text-align: center;
-      padding-bottom: 10vh;
+
+      /* Move text box higher */
+      padding-bottom: 22vh;
     }
 
     #overlay {
@@ -42,12 +44,28 @@
     }
 
     .text-line {
-      font-size: 34px; /* larger text */
+      font-size: 34px;
       margin: 22px 0;
       opacity: 0;
       transition: opacity 1s ease;
+      text-shadow:
+        0 0 12px rgba(0, 0, 0, 0.9),
+        0 0 20px rgba(0, 0, 0, 0.7),
+        0 0 30px rgba(0, 0, 0, 0.6);
+    }
 
-      /* Strong glow for readability */
+    /* Title */
+    #msg {
+      font-size: 46px;
+      font-weight: 600;
+    }
+
+    /* Subtitle */
+    #subtitle {
+      font-size: 28px;
+      margin-top: 10px;
+      opacity: 0;
+      transition: opacity 1s ease;
       text-shadow:
         0 0 12px rgba(0, 0, 0, 0.9),
         0 0 20px rgba(0, 0, 0, 0.7),
@@ -69,7 +87,6 @@
       cursor: pointer;
       font-family: "Cormorant Garamond", serif;
       width: 170px;
-
       box-shadow: 0 0 14px rgba(0,0,0,0.6);
     }
 
@@ -94,6 +111,7 @@
 
 <div id="overlay">
   <div id="msg" class="text-line"></div>
+  <div id="subtitle" class="text-line"></div>
   <div id="date" class="text-line"></div>
   <div id="time" class="text-line"></div>
 
@@ -111,30 +129,34 @@ window.onload = () => {
   started = true;
 
   const msg = document.getElementById("msg");
+  const subtitle = document.getElementById("subtitle");
   const date = document.getElementById("date");
   const time = document.getElementById("time");
   const buttons = document.getElementById("buttons");
 
   setTimeout(() => {
-    msg.innerHTML = 
-      "You are cordially invited to celebrate Jon's 30th birthday with him on a quest.<br><br>" +
-      "Only those who seek truth dare to accept.";
+    msg.innerText = "Jon's 30th Birthday Quest";
     msg.style.opacity = 1;
   }, 600);
 
   setTimeout(() => {
+    subtitle.innerText = "Meet here if you accept.";
+    subtitle.style.opacity = 1;
+  }, 1200);
+
+  setTimeout(() => {
     date.innerText = "06/28/2026";
     date.style.opacity = 1;
-  }, 1400);
+  }, 2000);
 
   setTimeout(() => {
     time.innerText = "1:00 PM";
     time.style.opacity = 1;
-  }, 2200);
+  }, 2800);
 
   setTimeout(() => {
     buttons.style.opacity = 1;
-  }, 3000);
+  }, 3600);
 };
 
 // Accept → send to Google Form
