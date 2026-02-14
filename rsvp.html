@@ -12,16 +12,17 @@
       width: 100vw;
       overflow: hidden;
 
-      /* Fullscreen background */
-      background-image: url('Invite.jpg'); /* <-- updated */
-      background-size: contain;
+      /* Full image visible */
+      background-image: url('Invite.jpg'); /* <-- capital I */
+      background-size: contain;            /* show entire image */
       background-position: center;
       background-repeat: no-repeat;
+      background-color: black;             /* fills space around image */
 
       display: flex;
       justify-content: center;
-      align-items: flex-end;
-      padding-bottom: 180px;
+      align-items: flex-end;               /* button toward bottom */
+      padding-bottom: 60px;                /* adjust height of button */
       font-family: "Garamond", serif;
     }
 
@@ -45,7 +46,7 @@
 
 <body>
 
-<button class="rsvp-btn" onclick="window.location.href='YOUR_GOOGLE_FORM_URL'">
+<button class="rsvp-btn" onclick="window.location.href='YOUR_GOOGLE_FORM_URL_HERE'">
   RSVP
 </button>
 
