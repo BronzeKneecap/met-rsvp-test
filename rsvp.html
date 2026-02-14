@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <title>RSVP</title>
 
-  <!-- Elegant serif font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
@@ -14,161 +11,44 @@
       height: 100vh;
       width: 100vw;
       overflow: hidden;
-      font-family: "Cormorant Garamond", serif;
-      color: white;
+      font-family: "Garamond", serif;
 
-      /* Fullscreen obelisk background — zoomed out */
-      background-image: url('obelisk.jpg');
-      background-size: contain;
+      /* Fullscreen background */
+      background-image: url('images/obelisk.jpg');
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      background-color: black;
 
       display: flex;
       justify-content: center;
-      align-items: flex-end;
-      text-align: center;
-
-      /* Move text box higher */
-      padding-bottom: 22vh;
+      align-items: flex-end; /* Push button toward bottom */
+      padding-bottom: 60px;  /* Adjust how high the button sits */
     }
 
-    #overlay {
-      background: rgba(0, 0, 0, 0.55);
-      padding: 45px;
-      border-radius: 14px;
-      max-width: 750px;
-      width: 92%;
-      opacity: 1;
-      transition: opacity 1s ease;
-    }
-
-    .text-line {
-      font-size: 34px;
-      margin: 22px 0;
-      opacity: 0;
-      transition: opacity 1s ease;
-      text-shadow:
-        0 0 12px rgba(0, 0, 0, 0.9),
-        0 0 20px rgba(0, 0, 0, 0.7),
-        0 0 30px rgba(0, 0, 0, 0.6);
-    }
-
-    /* Title */
-    #msg {
-      font-size: 46px;
-      font-weight: 600;
-    }
-
-    /* Subtitle */
-    #subtitle {
+    .rsvp-btn {
+      padding: 20px 40px;
       font-size: 28px;
-      margin-top: 10px;
-      opacity: 0;
-      transition: opacity 1s ease;
-      text-shadow:
-        0 0 12px rgba(0, 0, 0, 0.9),
-        0 0 20px rgba(0, 0, 0, 0.7),
-        0 0 30px rgba(0, 0, 0, 0.6);
-    }
-
-    /* Larger date + time */
-    #date, #time {
-      font-size: 40px;
-      font-weight: 600;
-    }
-
-    .btn {
-      padding: 16px 26px;
-      margin: 20px;
-      font-size: 24px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      font-family: "Cormorant Garamond", serif;
-      width: 170px;
-      box-shadow: 0 0 14px rgba(0,0,0,0.6);
-    }
-
-    .accept {
-      background: #c2a878;
+      background: rgba(194, 168, 120, 0.9); /* gold-ish */
       color: white;
+      font-family: "Garamond", serif;
+      transition: transform 0.2s ease, background 0.3s ease;
     }
 
-    .decline {
-      background: #8b2e2e;
-      color: white;
-    }
-
-    #buttons {
-      opacity: 0;
-      transition: opacity 1s ease;
+    .rsvp-btn:hover {
+      transform: scale(1.05);
+      background: rgba(194, 168, 120, 1);
     }
   </style>
 </head>
 
 <body>
 
-<div id="overlay">
-  <div id="msg" class="text-line"></div>
-  <div id="subtitle" class="text-line"></div>
-  <div id="date" class="text-line"></div>
-  <div id="time" class="text-line"></div>
-
-  <div id="buttons">
-    <button class="btn accept" onclick="accept()">Accept</button>
-    <button class="btn decline" onclick="decline()">Decline</button>
-  </div>
-</div>
-
-<script>
-let started = false;
-
-window.onload = () => {
-  if (started) return;
-  started = true;
-
-  const msg = document.getElementById("msg");
-  const subtitle = document.getElementById("subtitle");
-  const date = document.getElementById("date");
-  const time = document.getElementById("time");
-  const buttons = document.getElementById("buttons");
-
-  setTimeout(() => {
-    msg.innerText = "Jon's 30th Birthday Quest";
-    msg.style.opacity = 1;
-  }, 600);
-
-  setTimeout(() => {
-    subtitle.innerText = "Meet here if you accept.";
-    subtitle.style.opacity = 1;
-  }, 1200);
-
-  setTimeout(() => {
-    date.innerText = "06/28/2026";
-    date.style.opacity = 1;
-  }, 2000);
-
-  setTimeout(() => {
-    time.innerText = "1:00 PM";
-    time.style.opacity = 1;
-  }, 2800);
-
-  setTimeout(() => {
-    buttons.style.opacity = 1;
-  }, 3600);
-};
-
-// Accept → send to Google Form
-function accept() {
-  window.location.href = "YOUR_GOOGLE_FORM_ACCEPT_URL_HERE";
-}
-
-// Decline → send to Google Form
-function decline() {
-  window.location.href = "YOUR_GOOGLE_FORM_DECLINE_URL_HERE";
-}
-</script>
+<button class="rsvp-btn" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSdWTnVV8zHDkQTZHpY8K-qGF9gMZ8ZLMHU7Y6ENkYfcR8B5BA/viewform?usp=dialog'">
+  RSVP
+</button>
 
 </body>
 </html>
