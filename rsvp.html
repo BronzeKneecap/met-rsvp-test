@@ -23,33 +23,35 @@
       justify-content: center;
       align-items: flex-end;
       padding-bottom: 20vh; /* lower button */
-      font-family: "Lucida Calligraphy", cursive;
+      font-family: Georgia, serif;
+      font-style: italic;
     }
 
     .rsvp-btn {
-      padding: 36px 72px;        /* doubled */
-      font-size: 52px;           /* doubled */
+      padding: 36px 72px;        /* doubled size */
+      font-size: 52px;           /* doubled text */
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      background: rgba(194, 168, 120, 0.9);
+      background: black;         /* solid black button */
       color: white;
       transition: transform 0.2s ease, background 0.3s ease;
-      font-family: "Lucida Calligraphy", cursive;
+      font-family: Georgia, serif;
+      font-style: italic;
     }
 
     .rsvp-btn:hover {
       transform: scale(1.05);
-      background: rgba(194, 168, 120, 1);
+      background: black;
     }
 
     /* Mobile optimization */
     @media (max-width: 600px) {
       body {
-        padding-bottom: 50vh; /* lower on phones */
+        padding-bottom: 70vh; /* lower on phones */
       }
       .rsvp-btn {
-        font-size: 46px;       /* slightly smaller for mobile */
+        font-size: 46px;
         padding: 32px 64px;
       }
     }
