@@ -17,18 +17,18 @@
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      background-color: #df7a6d;           /* new background color */
+      background-color: black;             /* back to black */
 
       display: flex;
       justify-content: center;
-      align-items: flex-start;             /* start from top */
-      padding-top: 55vh;                   /* moves button to just below halfway */
-      font-family: "Lucida Calligraphy", cursive; /* new font */
+      align-items: flex-end;               /* button stays toward bottom */
+      padding-bottom: 20vh;                /* LOWER button for mobile */
+      font-family: "Lucida Calligraphy", cursive;
     }
 
     .rsvp-btn {
-      padding: 20px 40px;
-      font-size: 28px;
+      padding: 18px 36px;
+      font-size: 26px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -41,6 +41,17 @@
     .rsvp-btn:hover {
       transform: scale(1.05);
       background: rgba(194, 168, 120, 1);
+    }
+
+    /* Mobile optimization */
+    @media (max-width: 600px) {
+      body {
+        padding-bottom: 25vh; /* even lower on phones */
+      }
+      .rsvp-btn {
+        font-size: 24px;
+        padding: 16px 32px;
+      }
     }
   </style>
 </head>
