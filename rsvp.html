@@ -17,20 +17,20 @@
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      background-color: black;             /* back to black */
+      background-color: black;
 
       display: flex;
       justify-content: center;
-      align-items: flex-end;               /* button stays toward bottom */
-      padding-bottom: 20vh;                /* LOWER button for mobile */
+      align-items: flex-end;
+      padding-bottom: 20vh; /* lower button */
       font-family: "Lucida Calligraphy", cursive;
     }
 
     .rsvp-btn {
-      padding: 18px 36px;
-      font-size: 26px;
+      padding: 36px 72px;        /* doubled */
+      font-size: 52px;           /* doubled */
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       background: rgba(194, 168, 120, 0.9);
       color: white;
@@ -46,11 +46,11 @@
     /* Mobile optimization */
     @media (max-width: 600px) {
       body {
-        padding-bottom: 25vh; /* even lower on phones */
+        padding-bottom: 50vh; /* lower on phones */
       }
       .rsvp-btn {
-        font-size: 24px;
-        padding: 16px 32px;
+        font-size: 46px;       /* slightly smaller for mobile */
+        padding: 32px 64px;
       }
     }
   </style>
