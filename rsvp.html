@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <title>Jon's 30th Birthday Mystery</title>
 
-  <!-- Elegant serif font -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
@@ -14,165 +11,63 @@
       height: 100vh;
       width: 100vw;
       overflow: hidden;
-      font-family: "Cormorant Garamond", serif;
-      color: white;
 
-      /* Fullscreen obelisk background — zoomed out + moved upward */
-      background-image: url('obelisk.jpg');
+      /* Full image visible */
+      background-image: url('Invite.jpg'); /* capital I */
       background-size: contain;
+      background-position: center 70%; /* moved up slightly from 80% */
       background-repeat: no-repeat;
       background-color: black;
-      background-position: center top;
-      background-position-y: -40px; /* moves image upward */
 
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      text-align: center;
+      font-family: Georgia, serif;
+      font-style: italic;
 
-      /* Move text box higher */
-      padding-bottom: 22vh;
+      position: relative; /* allows absolute button positioning */
     }
 
-    #overlay {
-      background: rgba(0, 0, 0, 0.55);
-      padding: 45px;
-      border-radius: 14px;
-      max-width: 750px;
-      width: 92%;
-      opacity: 1;
-      transition: opacity 1s ease;
-    }
+    .rsvp-btn {
+      position: absolute;
 
-    .text-line {
-      font-size: 34px;
-      margin: 22px 0;
-      opacity: 0;
-      transition: opacity 1s ease;
-      text-shadow:
-        0 0 12px rgba(0, 0, 0, 0.9),
-        0 0 20px rgba(0, 0, 0, 0.7),
-        0 0 30px rgba(0, 0, 0, 0.6);
-    }
+      /* moved up slightly to match image shift */
+      top: 45vh;   /* was 50vh */
+      left: 75%;
 
-    /* Title */
-    #msg {
-      font-size: 46px;
-      font-weight: 600;
-    }
+      transform: translateX(-50%);
 
-    /* Subtitle */
-    #subtitle {
-      font-size: 28px;
-      margin-top: 10px;
-      opacity: 0;
-      transition: opacity 1s ease;
-      text-shadow:
-        0 0 12px rgba(0, 0, 0, 0.9),
-        0 0 20px rgba(0, 0, 0, 0.7),
-        0 0 30px rgba(0, 0, 0, 0.6);
-    }
-
-    /* Larger date + time */
-    #date, #time {
-      font-size: 40px;
-      font-weight: 600;
-    }
-
-    .btn {
-      padding: 16px 26px;
-      margin: 20px;
-      font-size: 24px;
+      padding: 36px 72px;
+      font-size: 52px;
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
-      font-family: "Cormorant Garamond", serif;
-      width: 170px;
-      box-shadow: 0 0 14px rgba(0,0,0,0.6);
-
-      /* Move RSVP buttons up same amount as image */
-      margin-bottom: 40px;
-    }
-
-    .accept {
-      background: #c2a878;
+      background: black;
       color: white;
-    }
+      transition: transform 0.2s ease, background 0.3s ease;
+      font-family: Georgia, serif;
+      font-style: italic;
 
-    .decline {
-      background: #8b2e2e;
-      color: white;
-    }
-
-    #buttons {
+      /* fade-in setup */
       opacity: 0;
-      transition: opacity 1s ease;
+      animation: fadeIn 0.8s ease forwards;
+      animation-delay: 1.5s;
+    }
+
+    .rsvp-btn:hover {
+      transform: translateX(-50%) scale(1.05);
+      background: black;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
     }
   </style>
 </head>
 
 <body>
 
-<div id="overlay">
-  <div id="msg" class="text-line"></div>
-  <div id="subtitle" class="text-line"></div>
-  <div id="date" class="text-line"></div>
-  <div id="time" class="text-line"></div>
-
-  <div id="buttons">
-    <button class="btn accept" onclick="accept()">Accept</button>
-    <button class="btn decline" onclick="decline()">Decline</button>
-  </div>
-</div>
-
-<script>
-let started = false;
-
-window.onload = () => {
-  if (started) return;
-  started = true;
-
-  const msg = document.getElementById("msg");
-  const subtitle = document.getElementById("subtitle");
-  const date = document.getElementById("date");
-  const time = document.getElementById("time");
-  const buttons = document.getElementById("buttons");
-
-  setTimeout(() => {
-    msg.innerText = "Jon's 30th Birthday Quest";
-    msg.style.opacity = 1;
-  }, 600);
-
-  setTimeout(() => {
-    subtitle.innerText = "Meet here if you accept.";
-    subtitle.style.opacity = 1;
-  }, 1200);
-
-  setTimeout(() => {
-    date.innerText = "06/28/2026";
-    date.style.opacity = 1;
-  }, 2000);
-
-  setTimeout(() => {
-    time.innerText = "1:00 PM";
-    time.style.opacity = 1;
-  }, 2800);
-
-  setTimeout(() => {
-    buttons.style.opacity = 1;
-  }, 3600);
-};
-
-// Accept → send to Google Form
-function accept() {
-  window.location.href = "YOUR_GOOGLE_FORM_ACCEPT_URL_HERE";
-}
-
-// Decline → send to Google Form
-function decline() {
-  window.location.href = "YOUR_GOOGLE_FORM_DECLINE_URL_HERE";
-}
-</script>
+<button class="rsvp-btn" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSdWTnVV8zHDkQTZHpY8K-qGF9gMZ8ZLMHU7Y6ENkYfcR8B5BA/viewform?usp=header'">
+  RSVP
+</button>
 
 </body>
 </html>
